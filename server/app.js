@@ -20,6 +20,7 @@ var current = 0;
 var padding = 10000;
 
 /* Performance compare */
+var performance = 0;
 var old = current;
 
 readline.on('line', function (input) {
@@ -51,7 +52,7 @@ readline.on('line', function (input) {
         case 'current':
             if (commands[1]) {
                 current = parseInt(commands[1]);
-                console.log('New index set to: ' + current);
+                console.log('New index set to: ' + current + "(" + toRadix(current, charset) + ")");
             } else {
                 printCurrent();
             }
@@ -137,12 +138,13 @@ function statusCheck(print) {
         printPerformance();
         printCurrent();
     }
+    performance = (current - old) / 10;
     old = current;
     setTimeout(statusCheck, 10 * 1000);
 }
 
 function printPerformance() {
-    console.log("Performance: " + ((current - old) / 10) + " keys/s");
+    console.log("Performance: " + performance + " keys/s");
 }
 
 function printCurrent() {
