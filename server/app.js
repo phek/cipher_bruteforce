@@ -27,6 +27,11 @@ var padding = 10000;
 var performance = 0;
 var old = current;
 
+/* Empty results on start */
+fs.truncate('results.txt', 0, function (err) {
+    if (err) return console.log(err);
+});
+
 readline.on('line', function (input) {
     var commands = input.split(' ');
     switch (commands[0]) {
