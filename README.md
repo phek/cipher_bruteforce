@@ -6,7 +6,7 @@ Extract the build folder from the Java client (java_client/build) to a location 
 
 ## Run
 Open run.bat on windows.  
-Run the following Java command on other platforms: 'java -jar java_client.jar'
+Run the following Java command on other platforms: java -jar java_client.jar
 
 ## Commands
 **current** - Displays the current key that is being handled by any of the clients  
