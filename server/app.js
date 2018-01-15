@@ -109,7 +109,9 @@ function toRadix(n, charset) {
 
 http.listen(5000, function () {
     console.log('listening on *:5000');
-    printStatus();
+    if (process.argv[2]) {
+        printStatus();
+    }
 });
 
 function restart() {
@@ -129,10 +131,8 @@ process.stdin.resume(); //so the program will not close instantly
 
 function exitHandler(options, err) {
     if (options.cleanup) {
-        socketio.emit('exit');
-        setTimeout(function () {
-            process.exit()
-        }, 1000);
+        //socketio.emit('exit');
+        process.exit()
     }
     if (err) console.log(err.stack);
     if (options.exit) process.exit();
