@@ -22,17 +22,17 @@ public class Crypter {
             String lastKey = getKey(index);
             String lastResult = VigenereCipher.decrypt(text, lastKey);
             String decodedB64;
-            if (BASE64_REGEX.matcher(lastResult).find()) {
-                if (lastResult.substring(lastResult.length() - 2, lastResult.length()).equals("==")) {
-                    if (VALID_BASE64_REGEX.matcher(lastResult).find()) {
-                        decodedB64 = new String(Base64.getDecoder().decode(lastResult));
-                        if (isValidDecode(decodedB64)) {
-                            keysFound.put(new JSONObject()
-                                    .put("key", lastKey)
-                                    .put("value", decodedB64));
-                        }
+            if (lastResult.substring(lastResult.length() - 2, lastResult.length()).equals("==")) {
+                if (VALID_BASE64_REGEX.matcher(lastResult).find()) {
+                    decodedB64 = new String(Base64.getDecoder().decode(lastResult));
+                    if (isValidDecode(decodedB64)) {
+                        keysFound.put(new JSONObject()
+                                .put("key", lastKey)
+                                .put("value", decodedB64));
                     }
-                } else {
+                }
+            } else {
+                if (BASE64_REGEX.matcher(lastResult).find()) {
                     decodedB64 = new String(Base64.getDecoder().decode(lastResult));
                     if (isValidDecode(decodedB64)) {
                         keysFound.put(new JSONObject()
