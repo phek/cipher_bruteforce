@@ -12,6 +12,10 @@ var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 /* Text to decode */
 var text = "G2pilVJccjJiQZ1poiM3iYZhj3I0IRbvj3wxomnoeOatVHUxZ2ozGKJgjXMzj2LgoOitBOM1dSDzHMatdRpmQZpidNehG29mkTxwmDJbGJxsjnVeQT9mTPSwSAOwnuWhSE50ByMpcuJoqGstJOCxqHCtdvG3HJV0TOGuwOIyoOGhwOHgm2GhlZpyISJik3J/";
 
+/* Regex */
+var numberRegex = /^\d+$/;
+var keyRegex = /^[A-Z]+$/;
+
 /* Results */
 var foundResults = {};
 
@@ -50,9 +54,16 @@ readline.on('line', function (input) {
             }
             break;
         case 'current':
-            if (commands[1]) {
-                current = parseInt(commands[1]);
-                console.log('New index set to: ' + current + "(" + toRadix(current, charset) + ")");
+            var value = commands[1];
+            if (value) {
+                if (numberRegex.test(value)) {
+                    current = parseInt(value);
+                } else if (keyRegex.test(value)) {
+                    current = toNumber(value);
+                } else {
+                    console.log('Incorrect value');
+                }
+                console.log('New index set to: ' + toRadix(current, charset));
             } else {
                 printCurrent();
             }
@@ -106,7 +117,6 @@ function newDecode(socket) {
     current += padding;
 }
 
-/* Slow - works on high numbers */
 function toRadix(n, charset) {
     var result = [];
 
@@ -119,14 +129,13 @@ function toRadix(n, charset) {
     return result.join('');
 }
 
-http.listen(5000, function () {
-    console.log('listening on *:5000');
-    var print = false;
-    if (process.argv[2]) {
-        print = true;
+function toNumber(str) {
+    var out = 0, len = str.length;
+    for (var pos = 0; pos < len; pos++) {
+        out += (str.charCodeAt(pos) - 64) * Math.pow(26, len - pos - 1);
     }
-    statusCheck(print);
-});
+    return out - 1;
+}
 
 function restart() {
     foundResults = {};
@@ -140,7 +149,9 @@ function statusCheck(print) {
     }
     performance = (current - old) / 10;
     old = current;
-    setTimeout(statusCheck, 10 * 1000);
+    setTimeout(function () {
+        statusCheck(print);
+    }, 10 * 1000);
 }
 
 function printPerformance() {
@@ -148,19 +159,19 @@ function printPerformance() {
 }
 
 function printCurrent() {
-    console.log("Current index: " + current + "(" + toRadix(current, charset) + ")");
+    console.log("Current index: " + toRadix(current, charset));
 }
+
+http.listen(5000, function () {
+    console.log('listening on *:5000');
+    var print = false;
+    if (process.argv[2]) {
+        print = true;
+    }
+    statusCheck(print);
+});
 
 process.stdin.resume(); //so the program will not close instantly
-
-function exitHandler(options, err) {
-    if (options.cleanup) {
-        //socketio.emit('exit');
-        process.exit()
-    }
-    if (err) console.log(err.stack);
-    if (options.exit) process.exit();
-}
 
 //do something when app is closing
 process.on('exit', exitHandler.bind(null, {cleanup: true}));
@@ -174,3 +185,12 @@ process.on('SIGUSR2', exitHandler.bind(null, {cleanup: true}));
 
 //catches uncaught exceptions
 process.on('uncaughtException', exitHandler.bind(null, {cleanup: true}));
+
+function exitHandler(options, err) {
+    if (options.cleanup) {
+        //socketio.emit('exit');
+        process.exit()
+    }
+    if (err) console.log(err.stack);
+    if (options.exit) process.exit();
+}
