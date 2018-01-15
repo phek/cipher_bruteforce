@@ -37,7 +37,7 @@ readline.on('line', function (input) {
                 restart();
                 console.log('New text set to: ' + text);
             } else {
-                console.log('No text entered');
+                console.log('Current text: ' + text);
             }
             break;
         case 'padding':
@@ -45,7 +45,15 @@ readline.on('line', function (input) {
                 padding = parseInt(commands[1]);
                 console.log('New padding set to: ' + padding);
             } else {
-                console.log('No padding entered');
+                console.log('Current padding: ' + padding);
+            }
+            break;
+        case 'current':
+            if (commands[1]) {
+                current = parseInt(commands[1]);
+                console.log('New index set to: ' + current);
+            } else {
+                console.log('Current index: ' + current);
             }
             break;
     }
