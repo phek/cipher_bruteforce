@@ -1,1 +1,1 @@
-java -jar java_client-1.0.jar
+java -jar java_client.jar
