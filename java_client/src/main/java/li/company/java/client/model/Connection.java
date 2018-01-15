@@ -40,7 +40,7 @@ public class Connection {
             }).on("decode_this", (Object... args) -> {
                 try {
                     JSONObject data = (JSONObject) args[0];
-                    JSONArray results = Crypter.crackB64VigenereCypher(data.getString("text"), data.getInt("start"), data.getInt("stop"));
+                    JSONArray results = Crypter.crackB64VigenereCypher(data.getString("text"), data.getLong("start"), data.getLong("stop"));
                     socket.emit("decode_result", new JSONObject()
                             .put("text", data.getString("text"))
                             .put("result", results)

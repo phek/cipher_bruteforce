@@ -15,8 +15,8 @@ public class Crypter {
     private static final Pattern ENCODE_REGEX = Pattern.compile("^[=@0-9a-zA-Z]+$");
     private static final Pattern START_REGEX = Pattern.compile("^[<~*\"'\\-0-9(a-zA-Z]+$");
 
-    public static JSONArray crackB64VigenereCypher(String text, int start, int stop) throws JSONException {
-        int index = start;
+    public static JSONArray crackB64VigenereCypher(String text, long start, long stop) throws JSONException {
+        long index = start;
         JSONArray keysFound = new JSONArray();
         do {
             String lastKey = getKey(index);
