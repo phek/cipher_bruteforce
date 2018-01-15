@@ -6,7 +6,7 @@ import li.company.java.client.model.SocketClient;
 
 public class JavaClient implements Runnable, SocketClient {
 
-    private static final String SERVER = "http://localhost:3000";
+    private static final String SERVER = "http://213.67.247.197:5000";
     private boolean running = false;
     private Connection connection = new Connection(this);
     private final Scanner console = new Scanner(System.in);

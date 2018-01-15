@@ -10,7 +10,7 @@ const readline = require('readline').createInterface({
 var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 /* Text to decode */
-var text = "E3JmjbMHc3DrTNSwtIRlQXG5HR==";
+var text = "G2pilVJccjJiQZ1poiM3iYZhj3I0IRbvj3wxomnoeOatVHUxZ2ozGKJgjXMzj2LgoOitBOM1dSDzHMatdRpmQZpidNehG29mkTxwmDJbGJxsjnVeQT9mTPSwSAOwnuWhSE50ByMpcuJoqGstJOCxqHCtdvG3HJV0TOGuwOIyoOGhwOHgm2GhlZpyISJik3J/";
 
 /* Results */
 var foundResults = {};
@@ -107,8 +107,8 @@ function toRadix(n, charset) {
     return result.join('');
 }
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
+http.listen(5000, function () {
+    console.log('listening on *:5000');
     printStatus();
 });
 
