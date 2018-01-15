@@ -53,8 +53,11 @@ readline.on('line', function (input) {
                 current = parseInt(commands[1]);
                 console.log('New index set to: ' + current);
             } else {
-                console.log('Current key: ' + toRadix(current, charset));
+                printCurrent();
             }
+            break;
+        case 'performance':
+            printPerformance();
             break;
     }
 });
@@ -117,9 +120,11 @@ function toRadix(n, charset) {
 
 http.listen(5000, function () {
     console.log('listening on *:5000');
+    var print = false;
     if (process.argv[2]) {
-        printStatus();
+        print = true;
     }
+    statusCheck(print);
 });
 
 function restart() {
@@ -127,13 +132,22 @@ function restart() {
     current = 1;
 }
 
-function printStatus() {
-    console.log("Performance: " + ((current - old) / 10) + " keys/s");
-    console.log("Current key: " + toRadix(current, charset));
+function statusCheck(print) {
+    if (print) {
+        printPerformance();
+        printCurrent();
+    }
     old = current;
-    setTimeout(printStatus, 10 * 1000);
+    setTimeout(statusCheck, 10 * 1000);
 }
 
+function printPerformance() {
+    console.log("Performance: " + ((current - old) / 10) + " keys/s");
+}
+
+function printCurrent() {
+    console.log("Current index: " + current + "(" + toRadix(current, charset) + ")");
+}
 
 process.stdin.resume(); //so the program will not close instantly
 
