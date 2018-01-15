@@ -53,7 +53,7 @@ readline.on('line', function (input) {
                 current = parseInt(commands[1]);
                 console.log('New index set to: ' + current);
             } else {
-                console.log('Current index: ' + current);
+                console.log('Current key: ' + toRadix(current, charset));
             }
             break;
     }
