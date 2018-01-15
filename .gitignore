@@ -1,0 +1,5 @@
+node_modules/
+.old
+.idea
+server/results.txt
+java_client/target/
