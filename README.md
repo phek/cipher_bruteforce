@@ -17,7 +17,7 @@ Run the following Java command on other platforms: _java -jar java_client.jar_
 **exit** - Exits the program after finishing it's current work (Always use this to prevent missing results)  
 
 ## Server Installation
-Extract the server folder to a location of your choice.
+Extract the server folder to a location of your choice, then run install.bat on windows or _npm install_ in a command line on other platforms.
 
 ### Run Server (Requires NPM)
 Navigate to the _server_ folder.  
