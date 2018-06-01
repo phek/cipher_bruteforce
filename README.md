@@ -12,6 +12,7 @@ Open run.bat on windows.
 Run the following Java command on other platforms: _java -jar java_client.jar_
 
 ### Commands
+**connect** **[server ip]** *(IP-address - Optional - Default: localhost)* **[server port]** *(Number - Optional - Default: 5000)* - Connects to the server   
 **current** - Displays the current key that is being handled by any of the clients  
 **results** - Displays all found results (inclusive false positives)  
 **exit** - Exits the program after finishing it's current work (Always use this to prevent missing results)  
@@ -25,9 +26,9 @@ Open run.bat on windows.
 Run the following command on other platforms: _npm start_
 
 ### Commands
-**text** _Text (Base64VigenereString)_ - Changes the current text that should be cracked by the clients.  
+**text** **[text]** *(Base64VigenereString - Mandatory)* - Changes the current text that should be cracked by the clients.  
 **restart** - Restarts the progress, restart from zero.  
-**padding** _Padding (Number)_ - Changes the key-range oadding. The amount of keys each client should crack at a time.  
+**padding** **[padding]** *(Number - Mandatory)* - Changes the key-range oadding. The amount of keys each client should crack at a time.  
 **current** - Displays the currently handled key.  
 **performance** - Shows the current average crack speed.
 **exit** - Exits the program.
