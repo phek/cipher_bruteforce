@@ -1,9 +1,14 @@
 # Cipher Brute Force
 Program for brute forcing Vigenere Ciphered Base64 strings.
 
-The server hands out key-ranges for the clients to crack, the clients then report their results back to the server. The more clients you run the faster the brute force will complete. If you want to generate your own Vigenere ciphered base64 string you can do this by first encoding the string with base64 at [https://cryptii.com/](https://cryptii.com/), then cipher the base64 encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice, the longer the key is, the longer the brute force will take. Use the **text** command on the server to change to the new string.
+The server hands out key-ranges for the clients to crack, the clients then report their results back to the server. The more clients you run the faster the brute force will complete. If you want to generate your own Vigenere ciphered base64 text you can do this by first encoding a text to base64 at [https://cryptii.com/](https://cryptii.com/) and then ciphering the base64 encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice, the longer the key is, the longer the brute force will take. Use the **text** command on the server to change to the new text.
 
-Then connect to the server with a client, the key should be found within
+Example:  
+[Encode base64](https://i.gyazo.com/37584b7e7c10b480a01be018226604e5.png)  
+[Cipher with vigenere](https://i.gyazo.com/c13e2ff49abd4a358ba7e36d633cea13.png)  
+[Change the text to decode on the server](https://i.gyazo.com/cb230be2330989f2c1cdfb017efbafd7.png)
+
+A 6 character key should be found within 5 minutes depending on computer speed and amount of clients. A 7 character can take days. The default message has a 6 character key, try running the program to see the brute force in progress.
 
 ## Client Installation (Requires Java)
 Extract the build folder from the Java client (java_client/build) to a location of your choice.
