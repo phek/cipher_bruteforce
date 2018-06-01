@@ -6,7 +6,7 @@ import li.company.java.client.model.SocketClient;
 
 public class JavaClient implements Runnable, SocketClient {
 
-    private static final int DEFAULT_SERVER = "localhost";
+    private static final String DEFAULT_SERVER = "localhost";
     private static final int DEFAULT_PORT = 5000;
     private boolean running = false;
     private Connection connection = new Connection(this);
@@ -28,12 +28,13 @@ public class JavaClient implements Runnable, SocketClient {
             switch (commands[0]) {
                 case "connect":
                     if (commands.length > 2) {
-                        connection.connect(commands[1] + ":" + commands[2]);
-                    } else if (commands.length = 1)
-                        connection.connect(commands[1] + ":" + DEFAULT_PORT);
+                        connection.connect("http://" + commands[1] + ":" + commands[2]);
+                    } else if (commands.length == 2) {
+                        connection.connect("http://" + commands[1] + ":" + DEFAULT_PORT);
                     } else {
-                        connection.connect(DEFAULT_SERVER + ":" + DEFAULT_PORT);
+                        connection.connect("http://" + DEFAULT_SERVER + ":" + DEFAULT_PORT);
                     }
+                    break;
                 case "exit":
                     connection.exit();
                     break;
