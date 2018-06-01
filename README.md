@@ -1,7 +1,9 @@
 # Cipher Brute Force
 Program for brute forcing Vigenere Ciphered Base64 strings.
 
-The server hands out key-ranges for the clients to crack, the clients then report their results back to the server. The more clients you run the faster the brute force will complete. If you want to generate your own Vigenere ciphered base64 string you can do this by first encoding the string with base64 at [https://cryptii.com/](https://cryptii.com/), then cipher the base64 encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice, the longer the key is, the longer the brute force will take.
+The server hands out key-ranges for the clients to crack, the clients then report their results back to the server. The more clients you run the faster the brute force will complete. If you want to generate your own Vigenere ciphered base64 string you can do this by first encoding the string with base64 at [https://cryptii.com/](https://cryptii.com/), then cipher the base64 encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice, the longer the key is, the longer the brute force will take. Use the **text** command on the server to change to the new string.
+
+Then connect to the server with a client, the key should be found within
 
 ## Client Installation (Requires Java)
 Extract the build folder from the Java client (java_client/build) to a location of your choice.
