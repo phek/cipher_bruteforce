@@ -5,7 +5,7 @@ Hidden messages are often encoded in Base64 and then ciphered, this makes it ext
 
 Note that there's many other cipher methods than Vigenere, this program currently only supports Vigenere ciphered Base64 strings. Vigenere is a common ciphering method so give it a try if you suspect the Base64 string is ciphered. You can assume it is ciphered if it looks like a Base64 string but it can't be decoded.
 
-If you want to generate your own Vigenere ciphered Base64 string you can do this by first encoding a text to Base64 at [https://cryptii.com/](https://cryptii.com/) and then ciphering the Base64-encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice. You can then try cracking it with the program. Use the **text** command on the server to change to the new text. The longer the key is, the longer the brute force will take.
+If you want to generate your own Vigenere ciphered Base64 string you can do this by first encoding a text to Base64 at [https://cryptii.com/](https://cryptii.com/) and then ciphering the Base64 encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice. You can then try cracking it with the program. Use the **text** command on the server to change to the new text. The longer the key is, the longer the brute force will take.
 
 Example:  
 [Encode base64](https://i.gyazo.com/37584b7e7c10b480a01be018226604e5.png)  
