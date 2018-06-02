@@ -1,7 +1,7 @@
 # Cipher Brute Force
 Program for brute forcing Vigenere ciphered Base64 strings.
 
-Hidden messages are often encoded in Base64 and then ciphered, this makes it extremely hard for a person to crack the original message unless they know the cipher-method and cipher key. This program can be used to find likely results and cipher keys for messages encoded in Base64 and then ciphered with a Vigenere cipher.
+Hidden messages are often encoded in Base64 and then ciphered, this makes it extremely hard for a person to crack the original message unless they know the cipher method and cipher key. This program can be used to find likely results and cipher keys for messages encoded in Base64 and then ciphered with a Vigenere cipher.
 
 Note that there's many other cipher methods than Vigenere, this program currently only supports Vigenere ciphered Base64 strings, Vigenere is a common ciphering method, so give it a try if you suspect the base64 string is ciphered, you can assume it is ciphered if it looks like a Base64 string but it can't be decoded.
 
