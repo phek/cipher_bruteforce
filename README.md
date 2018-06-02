@@ -39,7 +39,7 @@ Type _npm start_ in a command line on other platforms.
 ### Commands
 **text [text]** - Changes the current text that should be cracked by the clients, text is a Base64VigenereString.  
 **restart** - Restarts the progress, restart from zero.  
-**padding [padding]**- Determines how many keys each client should handle at a time, padding is a Number.  
+**padding [padding]** - Determines how many keys each client should handle at a time, padding is a Number.  
 **current** - Displays the currently handled key.  
 **performance** - Shows the current average crack speed.
 **exit** - Exits the program.
