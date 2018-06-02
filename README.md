@@ -10,7 +10,7 @@ If you want to generate your own Vigenere ciphered Base64 string you can do this
 Example:  
 [Encode base64](https://i.gyazo.com/37584b7e7c10b480a01be018226604e5.png)  
 [Cipher with vigenere](https://i.gyazo.com/c13e2ff49abd4a358ba7e36d633cea13.png)  
-[Change the text to decode on the server](https://i.gyazo.com/cb230be2330989f2c1cdfb017efbafd7.png)
+[Update to the new text on the server](https://i.gyazo.com/cb230be2330989f2c1cdfb017efbafd7.png)
 
 A 6 character key should be found within 5 minutes depending on computer speed and amount of clients. A 7 character key can take days. The default text has a 6 character key, try running the program to see the brute force in progress, you should find the encoded string in about 1 minute, run multiple clients to increase the speed.
 
