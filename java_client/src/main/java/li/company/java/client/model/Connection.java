@@ -61,6 +61,7 @@ public class Connection {
                 try {
                     JSONObject data = (JSONObject) args[0];
                     JSONArray results = data.getJSONArray("result");
+                    client.printMessage("Potential keys found:");
                     for (int i = 0; i < results.length(); i++) {
                         client.printMessage(
                                 results.getJSONObject(i).getString("key") + ": "

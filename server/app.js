@@ -10,7 +10,7 @@ const readline = require('readline').createInterface({
 var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 /* Text to decode */
-var text = "G2pilVJccjJiQZ1poiM3iYZhj3I0IRbvj3wxomnoeOatVHUxZ2ozGKJgjXMzj2LgoOitBOM1dSDzHMatdRpmQZpidNehG29mkTxwmDJbGJxsjnVeQT9mTPSwSAOwnuWhSE50ByMpcuJoqGstJOCxqHCtdvG3HJV0TOGuwOIyoOGhwOHgm2GhlZpyISJik3J/";
+var text = "KGzicnBhvyQhAANaY3BedRBlSXCzQPdaIYOuN29kRPQvaO4zYbFrSTN0IYYuOCT0tGKuAZNecYalrmNdIWdhwGvgQLB2pWvebbVqSSQjsQBdZPBuXFJhZHBjSXzgRf9yXHJhZHBbtXQoRQIvaPFgJEXMVTEm";
 
 /* Regex */
 var numberRegex = /^\d+$/;
@@ -28,9 +28,7 @@ var performance = 0;
 var old = current;
 
 /* Empty results on start */
-fs.truncate('results.txt', 0, function (err) {
-    if (err) return console.log(err);
-});
+fs.truncate('results.txt', 0, () => {});
 
 readline.on('line', function (input) {
     var commands = input.split(' ');
