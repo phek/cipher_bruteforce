@@ -1,6 +1,10 @@
 # Cipher Brute Force
 Program for brute forcing Vigenere Ciphered Base64 strings.
 
+The purpose of this program is that hidden messages often are encoded in base64 and then ciphered, this makes it extremely hard for a normal person to find the original message unless they know the cipher-method and cipher key. This program can therefore be used to find likely results and cipher keys for the encoded base64 vigenere string.
+
+Note that there's many other cipher methods than Vigenere, this program currently only supports Vigenere ciphered base64 strings, Vigenere is a common ciphering method, so give it a try if you suspect the base64 string is ciphered, you can assume it is ciphered if it looks like a base64 string but can't be decoded.
+
 If you want to generate your own Vigenere ciphered base64 text you can do this by first encoding a text to base64 at [https://cryptii.com/](https://cryptii.com/) and then ciphering the base64 encoded string at [https://www.dcode.fr/vigenere-cipher](https://www.dcode.fr/vigenere-cipher), cipher it by entering the string in the encode field, choose a key of your choice, the longer the key is, the longer the brute force will take. Use the **text** command on the server to change to the new text.
 
 Example:  
@@ -8,7 +12,7 @@ Example:
 [Cipher with vigenere](https://i.gyazo.com/c13e2ff49abd4a358ba7e36d633cea13.png)  
 [Change the text to decode on the server](https://i.gyazo.com/cb230be2330989f2c1cdfb017efbafd7.png)
 
-A 6 character key should be found within 5 minutes depending on computer speed and amount of clients. A 7 character key can take days. The default message has a 6 character key, try running the program to see the brute force in progress, run multiple clients to increase the speed.
+A 6 character key should be found within 5 minutes depending on computer speed and amount of clients. A 7 character key can take days. The default text has a 6 character key, try running the program to see the brute force in progress, you should find the encoded string in about 1 minute, run multiple clients to increase the speed.
 
 ## Client Installation (Requires Java)
 Extract the build folder from the Java client (java_client/build) to a location of your choice.
