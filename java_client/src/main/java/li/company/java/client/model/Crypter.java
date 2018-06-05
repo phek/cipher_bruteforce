@@ -54,9 +54,10 @@ public class Crypter {
                     return (decodedB64.split("\"").length - 1) % 2 == 0;
                 }
             } else {
-                if (ENCODE_REGEX.matcher(decodedB64).find()) {
+                /*if (ENCODE_REGEX.matcher(decodedB64).find()) {
                     return true;
-                }
+                }*/
+                return true;
             }
         }
         return false;
